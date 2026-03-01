@@ -91,26 +91,6 @@ Click the **WebSync Live** icon in the Activity Bar (left side).
 
 ---
 
-## Code Runner
-
-Supported languages out of the box:
-
-| Extension | Runner |
-|---|---|
-| `.py` | `python3` |
-| `.js` | `node` |
-| `.ts` | `npx ts-node` |
-| `.rb` | `ruby` |
-| `.sh` | `bash` |
-| `.go` | `go run` |
-| `.swift` | `swift` |
-| `.cpp` / `.cc` | `g++` |
-| `.c` | `gcc` |
-
-Click **▶ Run** in the toolbar or use the **Console** tab. Output streams in real time with stdout/stderr color coding.
-
----
-
 ## Project Structure
 
 ```
