@@ -1,0 +1,15 @@
+{
+  "name": "websync-live-server",
+  "version": "1.0.0",
+  "description": "WebSync Live - Server package",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "dotenv": "^17.3.1",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {}
+}

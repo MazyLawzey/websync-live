@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/media.css">
+    <script src="public/main.js" defer></script>
+    <title>WebSync Live</title>
+</head>
+<body>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SCREEN: Connect (Create / Join Session)                            -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <div id="screen-connect" class="screen active">
+        <div class="connect-container">
+            <div class="connect-logo">
+                <h1 class="logo">WebSync Live</h1>
+                <p class="subtitle">Collaborative web development for education</p>
+            </div>
+
+            <div class="connect-form">
+                <div class="form-group">
+                    <label for="displayName">Display Name</label>
+                    <input type="text" id="displayName" placeholder="Your name" maxlength="30" />
+                </div>
+
+                <div class="connect-actions">
+                    <button class="btn btn-primary btn-full" id="btn-create" onclick="createSession()">
+                        Create Session
+                    </button>
+
+                    <div class="divider"><span>or join existing</span></div>
+
+                    <div class="join-group">
+                        <input type="text" id="sessionCode" placeholder="Session code (e.g. A1B2C3)" maxlength="6" />
+                        <input type="text" id="serverUrl" placeholder="Server URL" value="ws://localhost:3000" />
+                        <button class="btn btn-secondary btn-full" id="btn-join" onclick="joinSession()">
+                            Join Session
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connect-extras">
+                <div class="divider"><span>or standalone</span></div>
+                <div class="standalone-actions">
+                    <button class="btn btn-secondary btn-full" onclick="startServerOnly()">
+                        &#9654; Start Server Only
+                    </button>
+                    <button class="btn btn-secondary btn-full" onclick="openPreviewPanel()">
+                        &#128065; Open Preview
+                    </button>
+                </div>
+            </div>
+
+            <div class="github-link">
+                <a href="https://github.com/mazylawzey/websync-live" target="_blank" rel="noopener">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" rel="github" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px; filter: invert(100%);">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SCREEN: Main Dashboard                                             -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <div id="screen-main" class="screen">
+        <!-- Header Bar -->
+        <header>
+            <h1 class="header-title">WebSync Live</h1>
+            <div class="session-info">
+                <span class="session-badge" id="session-code-display" onclick="copySessionCode()" title="Click to copy session code">—</span>
+                <span class="role-badge" id="role-display">—</span>
+            </div>
+            <div class="status-panel" id="status_panel">
+                <div class="circle_status running" id="circle_status"></div>
+                <p id="server_status">Connected</p>
+            </div>
+        </header>
+
+        <!-- Quick Actions Bar -->
+        <div class="quick-actions">
+            <button class="btn btn-sm btn-secondary" onclick="openPreviewPanel()" title="Open Preview in separate panel">
+                &#128065; Preview
+            </button>
+            <button class="btn btn-sm btn-secondary" onclick="addCommentFromEditor()" title="Add comment on current line">
+                &#128172; Comment
+            </button>
+            <button class="btn btn-sm btn-secondary" onclick="startServerOnly()" title="Start server without session">
+                &#9654; Server
+            </button>
+            <button class="btn btn-sm btn-secondary" id="btn-ngrok-toggle" onclick="toggleNgrokPanel()" title="Share via ngrok tunnel">
+                &#127760; Share
+            </button>
+            <button class="btn btn-sm btn-secondary" onclick="changeFolder()" title="Change server root folder">
+                &#128193; Folder
+            </button>
+        </div>
+
+        <!-- Host file focus banner (viewers only) -->
+        <div id="host-focus-banner" style="display:none;" class="host-focus-banner">
+            <span id="host-focus-text">&#128065; Host is viewing: —</span>
+        </div>
+
+        <!-- Ngrok Panel (hidden by default) -->
+        <div class="ngrok-panel" id="ngrok-panel" style="display: none;">
+            <div class="ngrok-header">
+                <span class="ngrok-title">&#127760; ngrok Tunnel</span>
+                <button class="btn btn-xs btn-secondary" onclick="toggleNgrokPanel()">&#10005;</button>
+            </div>
+            <div class="ngrok-body" id="ngrok-body">
+                <div class="ngrok-setup" id="ngrok-setup">
+                    <input type="password" id="ngrok-authtoken" placeholder="ngrok authtoken" />
+                    <div class="ngrok-token-row">
+                        <p class="hint">Get your token at <a href="#" onclick="return false;" style="color: var(--accent);">dashboard.ngrok.com</a></p>
+                        <button class="btn btn-xs btn-secondary" id="btn-clear-token" onclick="clearNgrokToken()" style="display:none;" title="Remove saved token">&#128465; Clear saved</button>
+                    </div>
+                    <button class="btn btn-primary btn-sm btn-full" id="btn-ngrok-start" onclick="startNgrok()">
+                        Start Tunnel
+                    </button>
+                </div>
+                <div class="ngrok-active" id="ngrok-active" style="display: none;">
+                    <div class="ngrok-url-group">
+                        <label>Server URL (for students)</label>
+                        <div class="ngrok-url-row">
+                            <input type="text" id="ngrok-ws-url" readonly />
+                            <button class="btn btn-xs btn-secondary" onclick="copyNgrokWsUrl()">Copy</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm btn-full" style="margin-top: 8px;" onclick="copyJoinInfo()">
+                        &#128203; Copy Join Info for Students
+                    </button>
+                    <div class="ngrok-share-info">
+                        <p class="hint">Click above to copy <strong>Session Code + Server URL</strong> — students paste it to join.</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm btn-full" onclick="stopNgrok()">
+                        Stop Tunnel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="tab-preview" onclick="switchTab('tab-preview', this)">
+                Preview
+            </button>
+            <button class="tab-btn" data-tab="tab-users" onclick="switchTab('tab-users', this)">
+                Users <span class="badge" id="users-count">0</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-comments" onclick="switchTab('tab-comments', this)">
+                Comments <span class="badge" id="comments-count">0</span>
+            </button>
+        </nav>
+
+        <!-- Tab Panels -->
+        <div class="tab-content">
+
+            <!-- ── Preview Tab ────────────────────────────────────────── -->
+            <div id="tab-preview" class="tab-panel active">
+                <div class="preview-toolbar">
+                    <button class="btn btn-sm btn-secondary" onclick="refreshPreview()">&#x21bb; Refresh</button>
+                    <button class="btn btn-sm btn-secondary" onclick="openPreviewPanel()">Open in Panel</button>
+                </div>
+                <div class="preview-container">
+                    <iframe id="preview-frame" src="about:blank"></iframe>
+                </div>
+            </div>
+
+            <!-- ── Users Tab ──────────────────────────────────────────── -->
+            <div id="tab-users" class="tab-panel">
+                <div class="section-header">
+                    <h3>Connected Users</h3>
+                </div>
+                <div class="users-list" id="users-list">
+                    <p class="empty-state">No users connected yet</p>
+                </div>
+            </div>
+
+            <!-- ── Comments Tab ───────────────────────────────────────── -->
+            <div id="tab-comments" class="tab-panel">
+                <div class="comment-form" id="comment-form">
+                    <h3>Add Comment</h3>
+                    <div class="comment-form-row">
+                        <input type="text" id="comment-file" placeholder="File path (e.g. index.html)" />
+                        <input type="number" id="comment-line" placeholder="Line #" min="1" class="comment-line-input" />
+                    </div>
+                    <textarea id="comment-text" placeholder="Write your comment..." rows="2"></textarea>
+                    <button class="btn btn-primary btn-sm" onclick="addComment()">Add Comment</button>
+                </div>
+
+                <div class="section-header">
+                    <h3>All Comments</h3>
+                </div>
+                <div class="comments-list" id="comments-list">
+                    <p class="empty-state">No comments yet. Add one above or use the command palette.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <button class="btn btn-danger btn-sm" onclick="disconnect()">Disconnect</button>
+        </footer>
+    </div>
+</body>
+</html>

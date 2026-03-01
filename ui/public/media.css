@@ -1,0 +1,166 @@
+/*
+    ######################################################################
+    WebSync Live - Responsive Styles
+    GPL-3.0 license
+    #######################################################################
+*/
+
+/* ─── Sidebar-friendly (narrow widths) ───────────────────────────────────── */
+
+@media (max-width: 500px) {
+    .connect-container {
+        padding: 16px 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .connect-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    header {
+        flex-wrap: wrap;
+        padding: 6px 8px;
+        gap: 4px;
+    }
+
+    .header-title {
+        font-size: 12px;
+    }
+
+    .session-badge {
+        font-size: 11px;
+        padding: 1px 6px;
+    }
+
+    .role-badge {
+        font-size: 9px;
+        padding: 1px 5px;
+    }
+
+    .status-panel p {
+        display: none;
+    }
+
+    .tab-btn {
+        padding: 6px 6px;
+        font-size: 11px;
+    }
+
+    .badge {
+        font-size: 9px;
+        min-width: 14px;
+        padding: 0 3px;
+    }
+
+    .preview-container {
+        height: 50vh;
+        min-height: 200px;
+    }
+
+    .user-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .user-actions {
+        width: 100%;
+    }
+
+    .role-select {
+        flex: 1;
+    }
+
+    .comment-form-row {
+        flex-direction: column;
+    }
+
+    .comment-line-input {
+        max-width: 100%;
+    }
+}
+
+/* ─── Very narrow (VS Code sidebar can be ~250px) ────────────────────────── */
+
+@media (max-width: 300px) {
+    body {
+        font-size: 12px;
+    }
+
+    header {
+        padding: 4px 6px;
+    }
+
+    .header-title {
+        display: none;
+    }
+
+    .tab-nav {
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        padding: 5px 4px;
+        font-size: 10px;
+        flex: 1 1 40%;
+    }
+
+    .tab-panel {
+        padding: 6px;
+    }
+
+    .preview-container {
+        height: 40vh;
+        min-height: 150px;
+    }
+
+    .preview-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .connect-container {
+        padding: 12px 8px;
+        gap: 16px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+    }
+
+    .git-actions-row {
+        flex-direction: column;
+    }
+
+    .git-branch-row {
+        flex-direction: column;
+    }
+}
+
+/* ─── Larger screens (full panel) ────────────────────────────────────────── */
+
+@media (min-width: 800px) {
+    .preview-container {
+        height: calc(100vh - 160px);
+    }
+
+    .connect-container {
+        gap: 32px;
+    }
+
+    .connect-form {
+        max-width: 360px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+}

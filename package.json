@@ -1,0 +1,144 @@
+{
+  "name": "websync-live",
+  "version": "1.0.0",
+  "displayName": "WebSync Live",
+  "description": "Real-time collaborative web development extension for VS Code. Share your workspace with students or colleagues, sync code, preview, and cursor positions instantly.",
+  "private": false,
+  "publisher": "mazylawzey",
+  "keywords": [
+    "collaboration",
+    "collaborative-editing",
+    "education",
+    "teaching",
+    "real-time",
+    "sync",
+    "web-development",
+    "live-coding",
+    "classroom",
+    "pair-programming",
+    "preview",
+    "websocket",
+    "server",
+    "ngrok",
+    "live-share"
+  ],
+  "homepage": "https://github.com/mazylawzey/websync-live#readme",
+  "bugs": {
+    "url": "https://github.com/mazylawzey/websync-live/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazylawzey/websync-live.git"
+  },
+  "license": "GPL-3.0",
+  "author": "mazylawzey",
+  "contributors": [
+    {
+      "name": "Ronn11",
+      "url": "https://github.com/ronn11"
+    }
+  ],
+  "type": "commonjs",
+  "main": "index.js",
+  "icon": "media/activitybar.svg",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/github/license/mazylawzey/websync-live",
+      "href": "https://github.com/mazylawzey/websync-live/blob/main/LICENSE",
+      "description": "License: GPL-3.0"
+    },
+    {
+      "url": "https://img.shields.io/github/stars/mazylawzey/websync-live",
+      "href": "https://github.com/mazylawzey/websync-live",
+      "description": "GitHub Stars"
+    }
+  ],
+  "categories": [
+    "Education",
+    "Collaboration",
+    "Other"
+  ],
+  "workspaces": [
+    "client",
+    "server",
+    "ext"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "vsce package"
+  },
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=18.0.0"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "websync.open",
+        "title": "Websync Live: Open Preview"
+      },
+      {
+        "command": "websync.startServer",
+        "title": "Websync Live: Start Server"
+      },
+      {
+        "command": "websync.createSession",
+        "title": "Websync Live: Create Session"
+      },
+      {
+        "command": "websync.joinSession",
+        "title": "Websync Live: Join Session"
+      },
+      {
+        "command": "websync.addComment",
+        "title": "Websync Live: Add Comment"
+      },
+      {
+        "command": "websync.disconnect",
+        "title": "Websync Live: Disconnect"
+      },
+      {
+        "command": "websync.changeFolder",
+        "title": "Websync Live: Change Server Folder"
+      },
+      {
+        "command": "websync.runCode",
+        "title": "Websync Live: Run Code"
+      },
+      {
+        "command": "websync.stopCode",
+        "title": "Websync Live: Stop Code"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "websyncLive",
+          "title": "Websync Live",
+          "icon": "media/activitybar.svg"
+        }
+      ]
+    },
+    "views": {
+      "websyncLive": [
+        {
+          "id": "websync-live-view",
+          "name": "WebSync Live",
+          "type": "webview"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "ws": "^8.16.0"
+  }
+}

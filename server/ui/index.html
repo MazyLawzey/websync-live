@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSync Live - error :/</title>
+    <favicon href="https://github.com/MazyLawzey/websync-live/blob/main/logo.png?raw=true" type="image/png">
+</head>
+<body>
+    <!-- WebSync Live - error page 404 -->
+    <main>
+        <header>
+            <h1>WebSync Live</h1>
+        </header>
+        <section>
+            <h1 id="emoji" onclick="rotate()">:[</h1>
+            <h2>404</h2>
+            <p>It looks like an error has occurred while trying to load your workspace.</p>
+        </section>
+        <footer>
+            <a href="https://github.com/MazyLawzey/websync-live">WebSync Live</a>
+        </footer>
+    </main>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #181818;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        main {
+            text-align: center;
+            background-color: #1f1f1f;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin-bottom: -2rem;
+        }
+        section h1 {
+            font-size: 5rem;
+            font-weight: 1000;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            user-select: none;
+            cursor: pointer;
+        }
+        section h1:hover {
+            font-size: 7rem;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // some fun animation for the emoji
+        function rotate() {
+            const emoji = document.getElementById('emoji');
+            if (emoji.style.transform === 'rotate(0deg)') {
+                emoji.style.transform = 'rotate(90deg)';
+            } else {
+                emoji.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>

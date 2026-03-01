@@ -1,0 +1,1001 @@
+/*
+    ######################################################################
+    WebSync Live - copyright (c) 2026 MazyLawzey
+    UI Styles — VS Code dark theme inspired
+    GPL-3.0 license
+    #######################################################################
+*/
+
+/* ─── Variables ──────────────────────────────────────────────────────────── */
+
+:root {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252526;
+    --bg-tertiary: #2d2d2d;
+    --bg-input: #3c3c3c;
+    --bg-hover: #37373d;
+    --text-primary: #cccccc;
+    --text-secondary: #858585;
+    --text-bright: #e0e0e0;
+    --accent: #0078d4;
+    --accent-hover: #1a8fe8;
+    --accent-muted: rgba(0, 120, 212, 0.15);
+    --success: #4ec9b0;
+    --warning: #ce9178;
+    --danger: #f44747;
+    --danger-hover: #d73a3a;
+    --border: #404040;
+    --border-light: #4a4a4a;
+    --role-host: #ffd700;
+    --role-admin: #da70d6;
+    --role-editor: #4ec9b0;
+    --role-viewer: #858585;
+    --radius: 4px;
+    --radius-lg: 6px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ─── Screens ────────────────────────────────────────────────────────────── */
+
+.screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Connect Screen ─────────────────────────────────────────────────────── */
+
+.connect-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    min-height: 100vh;
+    gap: 24px;
+}
+
+.connect-logo {
+    text-align: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.connect-form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.connect-footer {
+    text-align: center;
+}
+
+.connect-footer .hint {
+    font-size: 11px;
+}
+
+/* ─── Inputs ─────────────────────────────────────────────────────────────── */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 7px 10px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 40px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 14px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+    gap: 6px;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.btn:active {
+    opacity: 0.85;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-hover);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: var(--danger-hover);
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+.btn-xs {
+    padding: 2px 7px;
+    font-size: 11px;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ─── Connect Form Layout ────────────────────────────────────────────────── */
+
+.connect-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.join-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ─── Connect Extras (standalone actions on connect screen) ──────────────── */
+
+.connect-extras {
+    width: 100%;
+    max-width: 300px;
+}
+
+.standalone-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.standalone-actions .btn {
+    flex: 1;
+}
+
+/* ─── Quick Actions Bar (main screen) ────────────────────────────────────── */
+
+.quick-actions {
+    display: flex;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.quick-actions .btn {
+    flex: 1;
+    font-size: 12px;
+    padding: 5px 8px;
+}
+
+/* ─── Ngrok Panel ────────────────────────────────────────────────────────── */
+
+.ngrok-panel {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 12px;
+    flex-shrink: 0;
+}
+
+.ngrok-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.ngrok-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-bright);
+}
+
+.ngrok-body input[type="text"],
+.ngrok-body input[type="password"] {
+    font-size: 12px;
+    padding: 5px 8px;
+    margin-bottom: 6px;
+}
+
+.ngrok-token-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 2px 0 6px;
+}
+.ngrok-token-row .hint { margin: 0; }
+
+.ngrok-body .hint {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.ngrok-url-group {
+    margin-bottom: 8px;
+}
+
+.ngrok-url-group label {
+    display: block;
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+}
+
+.ngrok-url-row {
+    display: flex;
+    gap: 4px;
+}
+
+.ngrok-url-row input {
+    flex: 1;
+    font-size: 11px !important;
+    padding: 4px 6px !important;
+    background: var(--bg-tertiary);
+    color: var(--success);
+    font-family: monospace;
+}
+
+.ngrok-share-info {
+    margin: 8px 0;
+    padding: 6px 8px;
+    background: var(--accent-muted);
+    border-radius: var(--radius);
+}
+
+.ngrok-share-info .hint {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.ngrok-active-indicator {
+    background: var(--success) !important;
+    color: #1e1e1e !important;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.header-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.session-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.session-badge {
+    background: var(--bg-tertiary);
+    padding: 2px 8px;
+    border-radius: var(--radius);
+    font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: background 0.15s;
+    letter-spacing: 0.5px;
+}
+
+.session-badge:hover {
+    background: var(--bg-hover);
+}
+
+.role-badge {
+    padding: 2px 8px;
+    border-radius: var(--radius);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+}
+
+.role-badge.role-host {
+    background: var(--role-host);
+    color: #000;
+    border-color: var(--role-host);
+}
+
+.role-badge.role-admin {
+    background: var(--role-admin);
+    color: #fff;
+    border-color: var(--role-admin);
+}
+
+.role-badge.role-editor {
+    background: var(--role-editor);
+    color: #000;
+    border-color: var(--role-editor);
+}
+
+.role-badge.role-viewer {
+    background: var(--role-viewer);
+    color: #fff;
+    border-color: var(--role-viewer);
+}
+
+/* ─── Status Panel ───────────────────────────────────────────────────────── */
+
+.status-panel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-panel p {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.circle_status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--danger);
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.circle_status.running {
+    background: var(--success);
+    box-shadow: 0 0 6px rgba(78, 201, 176, 0.5);
+}
+
+/* ─── Tabs ───────────────────────────────────────────────────────────────── */
+
+.tab-nav {
+    display: flex;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 7px 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.badge {
+    background: var(--bg-input);
+    padding: 0 5px;
+    border-radius: 8px;
+    font-size: 10px;
+    min-width: 16px;
+    text-align: center;
+    line-height: 16px;
+}
+
+/* ─── Tab Content ────────────────────────────────────────────────────────── */
+
+.tab-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.tab-panel {
+    display: none;
+    padding: 10px;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.section-header {
+    margin-bottom: 8px;
+}
+
+.section-header h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Preview ────────────────────────────────────────────────────────────── */
+
+.preview-toolbar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.preview-container {
+    width: 100%;
+    height: calc(100vh - 170px);
+    min-height: 250px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.preview-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ─── Users ──────────────────────────────────────────────────────────────── */
+
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 5px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.user-card.user-me {
+    border-color: var(--accent);
+    background: var(--accent-muted);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-bright);
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.user-name {
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-role {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 0 5px;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.role-host {
+    background: var(--role-host);
+    color: #000;
+}
+
+.role-admin {
+    background: var(--role-admin);
+    color: #fff;
+}
+
+.role-editor {
+    background: var(--role-editor);
+    color: #000;
+}
+
+.role-viewer {
+    background: var(--role-viewer);
+    color: #fff;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.role-select {
+    width: auto;
+    min-width: 70px;
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+/* ─── Comments ───────────────────────────────────────────────────────────── */
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.comment-form h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 2px;
+}
+
+.comment-form-row {
+    display: flex;
+    gap: 6px;
+}
+
+.comment-line-input {
+    max-width: 70px;
+}
+
+.comment-card {
+    padding: 8px 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+    flex-wrap: wrap;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 12px;
+}
+
+.comment-location {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+}
+
+.comment-time {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+.comment-body {
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    word-wrap: break-word;
+    line-height: 1.45;
+}
+
+.comment-delete {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.comment-card:hover .comment-delete {
+    opacity: 1;
+}
+
+/* ─── Git Placeholder ────────────────────────────────────────────────────── */
+
+.git-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.git-section h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.git-branch-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.git-select {
+    flex: 1;
+}
+
+.git-changes-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.git-file-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.git-file-status {
+    font-size: 11px;
+    font-weight: 700;
+    width: 16px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.git-file-status.modified {
+    color: var(--warning);
+}
+
+.git-file-status.added {
+    color: var(--success);
+}
+
+.git-file-name {
+    font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+    font-size: 12px;
+}
+
+.git-actions-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.git-coming-soon {
+    text-align: center;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+    margin-top: 8px;
+}
+
+.git-coming-soon p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+/* ─── Misc ───────────────────────────────────────────────────────────────── */
+
+.hint {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.empty-state {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 20px 10px;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────────── */
+
+.main-footer {
+    padding: 8px 12px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-secondary);
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+/* ─── Toast Notification ─────────────────────────────────────────────────── */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: var(--radius-lg);
+    font-size: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 9999;
+    pointer-events: none;
+    max-width: 280px;
+    text-align: center;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-light);
+}
+
+/* ─── Run / Console Tab ──────────────────────────────────── */
+
+.btn-run {
+    background: #2d7a2d;
+    color: #b5e6b5;
+    border: 1px solid #3a9a3a;
+    font-weight: 600;
+}
+.btn-run:hover { background: #368a36; }
+.btn-run.running {
+    background: #7a2d2d;
+    color: #e6b5b5;
+    border-color: #9a3a3a;
+}
+
+.console-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    gap: 6px;
+}
+.console-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+.console-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.console-file-label {
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border);
+    font-style: italic;
+    min-height: 20px;
+}
+.console-output {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 10px;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+    background: #0d0d0d;
+    min-height: 150px;
+    max-height: calc(100vh - 260px);
+    color: #d4d4d4;
+}
+.console-output .c-out  { color: #d4d4d4; }
+.console-output .c-err  { color: #f48771; }
+.console-output .c-info { color: #569cd6; }
+.console-output .c-warn { color: #dcdcaa; }
+
+/* ─── Host-focus banner ──────────────────────────────────── */
+
+.host-focus-banner {
+    padding: 4px 10px;
+    background: rgba(0, 120, 212, 0.12);
+    border-bottom: 1px solid rgba(0, 120, 212, 0.35);
+    font-size: 11px;
+    color: #5dade2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

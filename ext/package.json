@@ -1,0 +1,13 @@
+{
+  "name": "websync-live-ext",
+  "version": "1.0.0",
+  "description": "WebSync Live - Extension package",
+  "main": "import-ext.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {}
+}
