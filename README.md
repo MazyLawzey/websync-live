@@ -141,3 +141,21 @@ websync-live/
 ## License
 
 [GPL-3.0](LICENSE)
+
+---
+
+# ⚠️ Important Notice About VS Code Marketplace Version
+
+If you installed our extension from the VS Code Marketplace, please read this before opening an issue.
+
+The Marketplace version has significant limitations and restrictions, which may cause unexpected errors or missing functionality. These issues are often related to the Marketplace build itself and not the core project.
+
+## 🚨 Before creating an issue, please make sure you are using the stable version from our official GitHub Releases.
+
+The version published in GitHub Releases is the original and fully stable build without the limitations present in the Marketplace version.
+
+### 👉 Please download and install the extension directly from GitHub Releases for the best and most stable experience.
+
+If the issue still persists after installing the GitHub release version, feel free to open an issue — we’ll be happy to help.
+
+**Thank you for your understanding and support!**
