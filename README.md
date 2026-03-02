@@ -46,20 +46,8 @@ A teacher opens a session, students join and see code, preview, and cursor posit
 
 ## Getting Started
 
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
-### 2. Run the extension
-
-Press **F5** in VS Code to launch the Extension Development Host.
-
-### 3. Open the sidebar
-
-Click the **WebSync Live** icon in the Activity Bar (left side).
-
+### 1. Download ngrok CLI!!!
+[ngrok.com/download](https://ngrok.com/download)
 ---
 
 ## Usage
