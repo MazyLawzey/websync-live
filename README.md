@@ -67,6 +67,7 @@ A teacher opens a session, students join and see code, preview, and cursor posit
 2. Enter the server URL (e.g. `ws://localhost:3000` or the ngrok WSS URL)
 3. Click **Join Session**
 4. Files are synced automatically — no setup needed
+5. Sometimes you need twice join session.
 
 ---
 
