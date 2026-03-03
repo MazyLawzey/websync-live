@@ -142,6 +142,7 @@ The Marketplace version has significant limitations and restrictions, which may 
 ## 🚨 Before creating an issue, please make sure you are using the stable version from our official GitHub Releases.
 
 The version published in GitHub Releases is the original and fully stable build without the limitations present in the Marketplace version.
+Ngrok is no longer available in russia, so use VPN. Or host your own server.
 
 ### 👉 Please download and install the extension directly from GitHub Releases for the best and most stable experience.
 
