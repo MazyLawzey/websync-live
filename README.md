@@ -5,6 +5,12 @@ A teacher opens a session, students join and see code, preview, and cursor posit
 
 ---
 
+
+
+https://github.com/user-attachments/assets/c7fafee7-8a18-43f2-a268-642943d2ae09
+
+
+
 ## Features
 
 | Feature | Description |
