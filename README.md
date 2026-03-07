@@ -138,6 +138,9 @@ websync-live/
 [GPL-3.0](LICENSE)
 
 ---
+## Marketplace
+https://marketplace.visualstudio.com/items?itemName=MazyLawzey.websync-live
+---
 
 # ⚠️ Important Notice About VS Code Marketplace Version
 
