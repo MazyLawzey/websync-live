@@ -3,6 +3,9 @@
 **WebSync Live** — VS Code extension for collaborative web development in education.  
 A teacher opens a session, students join and see code, preview, and cursor positions in real time — like CodeTogether + Live Server + Figma, all inside VS Code.
 
+### Site
+https://mazylawzey.github.io/websync/
+
 ---
 
 
