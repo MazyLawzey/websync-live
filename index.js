@@ -1,6 +1,6 @@
 /*
     ######################################################################
-    WebSync Live - copyright (c) 2026 MazyLawzey
+    WebSync Live - copyright (c) 2026 MazyLawzey. All rights reserved.
     https://github.com/MazyLawzey - MazyLawzey main author of WebSync Live
     https://github.com/rionn11 - rionn11 main contributor of WebSync Live
     https://github.com/MazyLawzey/websync-live - OUR REPO
